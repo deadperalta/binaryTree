@@ -1,3 +1,15 @@
+void inorderStore(Node* root,vector<int>&arr)
+{
+  if(root == NULL)
+  {
+    return;
+  }
+  
+  inorderStore(root->left,arr);
+  arr.push_back(root->data);
+  inorderStore(root->right,arr);
+}
+
 void replaceNodeWithSum(Node* root,int arr[],int &i)
 {
   if(root == NULL)
@@ -20,7 +32,7 @@ void replaceNodeWithSumUtil(Node* root)
   
   vector<int>arr;
   arr.push_back(0);
-  inorderStore(arr);
+  inorderStore(root,arr);
   arr.push_back(0);
   
   int i=1;
